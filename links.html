@@ -4,216 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FEAR IS THE MIND-KILLER</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-        
-        :root {
-            --color0: #0c0c0c;
-            --color1: #6E9B08;
-            --color2: #84BB05;
-            --color3: #98D902;
-            --color4: #9DE001;
-            --color5: #929292;
-            --color6: #B3B3B3;
-            --color7: #dedede;
-            --color8: #9b9b9b;
-            --color9: #6E9B08;
-            --color10: #84BB05;
-            --color11: #98D902;
-            --color12: #9DE001;
-            --color13: #929292;
-            --color14: #B3B3B3;
-            --color15: #dedede;
-        }
-
-        body {
-            background-color: var(--color0);
-            color: var(--color1);
-            font-family: 'Press Start 2P', monospace;
-            margin: 0;
-            padding: 20px;
-            overflow-x: hidden;
-            font-size: 12px;
-            line-height: 1.2;
-            text-shadow: 0 0 2px var(--color1);
-            min-width: 320px;
-        }
-
-        .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                to bottom,
-                rgba(255, 255, 255, 0),
-                rgba(255, 255, 255, 0) 50%,
-                rgba(12, 12, 12, 0.1) 50%,
-                rgba(12, 12, 12, 0.1)
-            );
-            background-size: 100% 4px;
-            z-index: 1000;
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        .flicker {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(152, 217, 2, 0.01);
-            z-index: 1001;
-            pointer-events: none;
-            animation: flicker 0.2s infinite;
-        }
-
-        @keyframes flicker {
-            0% { opacity: 0.9; }
-            50% { opacity: 1; }
-            100% { opacity: 0.9; }
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-            animation: buzz 0.1s infinite alternate;
-            max-width: 1200px;
-            margin-left: 0;
-        }
-
-        .top-content {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .left-content {
-            flex: 0 0 auto;
-        }
-
-        @keyframes buzz {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(0.2px) translateY(0.2px); }
-        }
-
-        h1 {
-            color: var(--color2);
-            font-size: 18px;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px #0c0c0c;
-        }
-
-        h2 {
-            color: var(--color5);
-            font-size: 14px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 2px var(--color1);
-        }
-
-        a {
-            color: var(--color1);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--color5);
-        }
-
-        .categories-container {
-            display: grid;
-            grid-template-columns: minmax(200px, 300px) minmax(200px, 300px) minmax(200px, 300px);
-            gap: 20px;
-            margin-top: 20px;
-            margin-left: 0;
-        }
-
-        .middle-column {
-            min-width: 0;
-        }
-
-        .middle-column .category:first-child {
-            margin-bottom: 30px;
-        }
-
-        .category {
-            min-width: 0;
-        }
-
-        #clock {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: var(--color6);
-        }
-
-        .ip-info, .location-info, .weather-info {
-            font-size: 12px;
-            margin-bottom: 10px;
-            color: var(--color4);
-            font-family: 'Press Start 2P', monospace;
-        }
-
-        .weather-info {
-            margin-bottom: 20px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin: 0;
-        }
-
-        li {
-            margin-bottom: 4px;
-            font-size: 10px;
-        }
-
-        pre {
-            color: var(--color7);
-            font-size: 14px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            font-family: 'VT323', monospace;
-        }
-
-        .ascii-art {
-            position: static;
-            color: var(--color1);
-            font-size: 14px;
-            line-height: 1;
-            text-align: left;
-            font-family: 'VT323', monospace;
-            white-space: pre;
-            letter-spacing: 0.1em;
-            text-shadow: 0 0 2px var(--color1);
-            margin-top: 0;
-        }
-
-        @media (max-width: 1200px) {
-            .categories-container {
-                grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
-            }
-            
-            .top-content {
-                flex-direction: column;
-            }
-
-            .ascii-art {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .categories-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    
+    <link rel="stylesheet" href="assets/css/colors.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="scanlines"></div>
@@ -259,7 +52,6 @@ HELLO, GRIEFHOUND
                 '             :xl           cl.          '     
                                 lxl,.   'coc.
                                    .;clll;
-
             </pre>
         </div>
         
@@ -348,7 +140,7 @@ HELLO, GRIEFHOUND
         </div>
     </div>
 
-
+    <!-- Scripts -->
     <script src="assets/js/config.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
