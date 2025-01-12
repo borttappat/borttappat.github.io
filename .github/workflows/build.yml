@@ -4,7 +4,6 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-# Cancel any in-progress job or run
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -20,21 +19,52 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
         
+      - name: Debug Setup
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Directory contents:"
+          ls -la
+          echo "Git status:"
+          git status
+          
       - name: Create config.js
         run: |
+          echo "Creating js directory..."
           mkdir -p assets/js
+          echo "Directory created. Contents:"
+          ls -la assets/js
+          echo "Creating config.js..."
           echo "const config = { weatherApiKey: '${{ secrets.WEATHER_API_KEY }}' };" > assets/js/config.js
-          
-      - name: Verify file
-        run: |
-          ls -l assets/js/config.js
+          echo "Config.js created. Contents:"
           cat assets/js/config.js
+          echo "Directory after creation:"
+          ls -la assets/js
           
-      - name: Commit and push
+      - name: Setup Git
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+      - name: Debug Git Status
+        run: |
+          echo "Git status before commit:"
+          git status
+          echo "Checking for config.js:"
+          test -f assets/js/config.js && echo "config.js exists" || echo "config.js is missing"
+          
+      - name: Stage and Commit
+        run: |
           git add assets/js/config.js
+          git status
           git commit -m "Update config.js" || echo "No changes to commit"
-          git push || echo "No changes to push"
+          
+      - name: Push Changes
+        run: |
+          echo "Attempting to push..."
+          git push origin main || echo "Push failed"
+          echo "Final check for config.js:"
+          test -f assets/js/config.js && echo "config.js exists" || echo "config.js is missing"
