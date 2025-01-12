@@ -92,7 +92,7 @@ a {
     color: var(--color1);
     text-decoration: none;
     transition: all 0.3s ease;
-    text-transform: lowercase;
+    /* text-transform: lowercase; */
 }
 
 a:hover {
