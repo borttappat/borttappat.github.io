@@ -97,7 +97,7 @@ a {
 
 a:hover {
     color: var(--color6);
-    text-shadow: 0 0 8px var(--color6);
+    /*text-shadow: 0 0 8px var(--color6);*/
 }
 
 pre {
