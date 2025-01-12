@@ -52,14 +52,12 @@ function updateClock() {
     const seconds = String(now.getSeconds()).padStart(2, '0');
     const timeString = `${hours}:${minutes}:${seconds}`;
     
-    if (document.getElementById('clock')) {
-        document.getElementById('clock').textContent = timeString;
-    }
     if (document.getElementById('time')) {
         document.getElementById('time').textContent = timeString;
     }
 }
 
+// Initialize everything
 fetchIPAndLocation();
 setInterval(updateClock, 1000);
 updateClock();
