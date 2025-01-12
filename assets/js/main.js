@@ -1,17 +1,25 @@
-// Using config.weatherApiKey from config.js
 async function fetchIPAndLocation() {
     try {
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
         
-        document.getElementById('ip-display').textContent = `IP: ${data.ip}`;
-        document.getElementById('location-display').textContent = 
-            `Supposed location: ${data.city}, ${data.country_code}`;
+        if (document.getElementById('ip-display')) {
+            document.getElementById('ip-display').textContent = data.ip || '[_no_ip_address_]';
+        }
+        
+        if (document.getElementById('location-display')) {
+            document.getElementById('location-display').textContent = 
+                `${data.city}, ${data.country_code}`;
+        }
         
         fetchWeather(data.latitude, data.longitude);
     } catch (error) {
-        document.getElementById('ip-display').textContent = 'IP: unavailable';
-        document.getElementById('location-display').textContent = 'Location: unavailable';
+        if (document.getElementById('ip-display')) {
+            document.getElementById('ip-display').textContent = '[_no_ip_address_]';
+        }
+        if (document.getElementById('location-display')) {
+            document.getElementById('location-display').textContent = 'Location: unavailable';
+        }
         console.error('Error fetching IP/location:', error);
     }
 }
@@ -25,10 +33,14 @@ async function fetchWeather(lat, lon) {
         const temp = Math.round(data.main.temp);
         const condition = data.weather[0].main;
         
-        document.getElementById('weather-display').textContent = 
-            `Weather: ${temp}°C, ${condition}`;
+        if (document.getElementById('weather-display')) {
+            document.getElementById('weather-display').textContent = 
+                `${temp}°C, ${condition}`;
+        }
     } catch (error) {
-        document.getElementById('weather-display').textContent = 'Weather: unavailable';
+        if (document.getElementById('weather-display')) {
+            document.getElementById('weather-display').textContent = 'Weather: unavailable';
+        }
         console.error('Error fetching weather:', error);
     }
 }
@@ -38,10 +50,16 @@ function updateClock() {
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    
+    if (document.getElementById('clock')) {
+        document.getElementById('clock').textContent = timeString;
+    }
+    if (document.getElementById('time')) {
+        document.getElementById('time').textContent = timeString;
+    }
 }
 
-// Initialize everything
 fetchIPAndLocation();
 setInterval(updateClock, 1000);
 updateClock();

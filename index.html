@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STR & VIS</title>
-    
-    <!-- Styles - colors.css must come before style.css -->
     <link rel="stylesheet" href="assets/css/colors.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -13,62 +11,46 @@
     <div class="scanlines"></div>
     <div class="flicker"></div>
     <div class="container">
-        <pre class="ascii-art">                                                                                           
-                                   ..              .       .
-                            .      .,              .      .'
-                             .     .,             ..     .'.
-                 ;xl..       ..    ''             .      ''          .'d:'
-                dKMO,c       ..   ...             ..     ,.         '.;WMdc
-                KMMMdOc      ..   '.               ..   .,.         klXMMMk
-              .kMMMNk,O      .'   ..               ..   .,.        .0:KWMMNc
-              x'lkM0.xO      ..   '.               ..    ..       .,No,MMkloo
-             ..   Nx  ..         .,.                .   '.        ''. ,WO   ..
-            .''.  K0 .''      .   ...              ..  ...      .'''. :Mc  ''.
-            .''. oM: '''       .. .,,'            ..  .'.       '.... .XK. .'.
-           .'.  kNl  ..'.      ..'.....  ..;.:..     .'.       ..    . ,XX, ..
-           .. :NX,  ''.'.        . .:xokldcocooxkkOx:          ..  ...  .OWd
-          ..;KMNl   .'.'        ,xOkc.            .,OXl       .'' .'     ,0MX:
-          ' 0MNk:'.  ..'.     lkk'                   dMx .xo.  ....''.. .;dXWMc
-         ...kMWdokx::c,:.',d0xl        c' .    .. occkMX  .:Oko, .;;;..;dllKMW:.
-          ..'lXNXMMMMXKOXKO:.      'O0KWKc.  .  ;kWK0WXl     .c0KK0O0WMMMNNM0d..
-            ..  ';clll;,           .cWWWNOOc...'ck0WWx'         .';odkxxdl'.. ...
-         .  .'.... .'.:,c,':;lclco:. ..oc0KMW0xl:c:::cl,c;c,c.:',c.;..      . .
-          ..;lod;odO0ONON0KKOKkOxkdx,      .:dxXkK00Kxkdooldcxcc:clllck;l;lc, .
-        .o0NNWXXWO0;l .                         ,:x00N0N0KO0kOkOO0XXNkOd0KW0XXKk;
-      .kWMMMXcl.'                      ll;,,loXKKNNx:.. .          ,,0NWWxcxdNMMMNo
-     'NMMMMd'.   .;'                ' oxXXMMWXNXOc                   .xXMMX'.'oMMMMN,
-     KMMMMMx. .K0c,.              .cKWMMWKdo,.   ,ox00;'          ..  .,oKMO..:MMMMMW.
-     XWMMMMOd.dWk  .           ,lkXWMWOc;   .    :l0MMNXx:'        .  .. ;M0. lWMMMMWc
-     l0WMMMMMKxOO'           ,xNNMWOl'  ........    ;dKMMNXo'     ..     KMo cMMMMMN0
-      ;dOMMMMMKOdc:'.. ''ll,ONMWx:.  .'''''  .'' ..... .oOMMXo ..     'kNWx.:NMMMWOo;
-      ..',c0KNWKXK0OOK0XWMNNkl,.      .,      .,.;;l,o.'            oOXNk 'OWWWOx;,.
-      . .    ...c'llxxod',   ;;c:olxdOdkodld:klkodlodxOXKlocko0k0d0kkc.  ,llc   .
-        ..                    .'.      .. ........      ;KK:
-                             ;XX.     ',..''..,''',...   ;WN,
-               ;lxkkxkxdxxkkx:KK.    .,'.'''.''.  .'',   .l;ldkkxxdxxdkd:'
-            lddl;.            lK0.   .'..'.....''.      :OOd;.         ,lodxo;
-           .                  .;oKd     ..,,'''...    :do.                   ,.
-                                 .x0c     ....     .cdc.
-                                  .ck0do:'. ...;coxO:. .
-                                      .;loxdkoxc:.</pre>
-
-        <div class="links">
-            <a href="links.html">links</a>
-            <a href="resume.html">resume</a>
-            <a href="dotfiles.html">dotfiles</a>
-            <a href="repo.html">repo</a>
-        </div>
-
-        <!-- Status information -->
-        <div class="status-info">
-            <div id="clock"></div>
-            <div id="ip-display" class="ip-info">IP: fetching...</div>
-            <div id="location-display" class="location-info">Location: fetching...</div>
-            <div id="weather-display" class="weather-info">Weather: fetching...</div>
-        </div>
+        <pre class="ascii-art">                                                                                           .
+                                                                                           ..              .       .
+                                                                                    .      .,              .      .'
+                                                                                     .     .,             ..     .'.
+                                                                         ;xl..       ..    ''             .      ''          .'d:'
+                                                                        dKMO,c       ..   ...             ..     ,.         '.;WMdc
+                                                                        KMMMdOc      ..   '.               ..   .,.         klXMMMk
+                                                                      .kMMMNk,O      .'   ..               ..   .,.        .0<span id="clock">00:00:00</span>c
+                                                                      x'lkM0.xO      ..   '.               ..    ..       .,No,MMkloo
+                                                                     ..   Nx  ..         .,.                .   '.        ''. ,WO   ..
+                                                                    .''.  K0 .''      .   ...              ..  ...      .'''. :Mc  ''.
+                                                                    .''. oM: '''       .. .,,'            ..  .'.       '.... .XK. .'.
+                                                                   .'.  kNl  ..'.      ..'.....  ..;.:..     .'.       ..    . ,XX, ..
+                                                                   .. :NX,  ''.'.        . .:xokldcocooxkkOx:          ..  ...  .OWd
+                                                                  ..;KMNl   .'.'        ,xOkc.            .,OXl       .'' .'     ,0MX:
+                                                                  ' 0MNk:'.  ..'.     lkk'                   dMx .xo.  ....''.. .;dXWMc
+                                                                 ...kMWdokx::c,:.',d0xl        c' .    .. occkMX  .:Oko, .;;;..;dllKMW:.
+                                                                  ..'<a href="resume.html">resume</a>XKOXKO:.      'O0KWKc.  .  ;kWK0WXl     .c0KK<span id="time">23:03:21</span>0d..
+                                                                    ..  ';clll;,           .cWWWNOOc...'ck0WWx'         .';odkxxdl'.. ...
+                                                                 .  .'.... .'.:,c,':;lclco:. ..oc0KMW0xl:c:::cl,c;c,c.:',c.;..      . .
+                                                                  ..;lod;odO0ONON0KKOKkOxkdx,      .:dxXkK<a href="links.html">links</a>oldcxcc:clllck;l;lc, .
+                                                                .o0NNWXXWO0;l .                         ,:x00N0N<span id="ip-display">[_no_ip_address_]</span>dW0XXKk;
+                                                              .kWMMMXcl.'                      ll;,,loXKKNNx:.. .          ,,0NWWxcxdNMMMNo
+                                                             'NMMMMd'.   .;'                ' oxXXMMWXNXOc                   .xXMMX'.'oMMMMN,
+                                                             KMMMMMx. .K0c,.              .cKWMMWKdo,.   ,ox00;'          ..  .,oKMO..:MMMMMW.
+                                                             XWMMMMOd.dWk  .           ,lkXWMWOc;   .    :l0MMNXx:'        .  .. ;M0. lWMMMMWc
+                                                             l0WMMMMMKxOO'           ,xNNMWOl'  ........    ;dKMMNXo'     ..     KMo cMMMMMN0
+                                                              ;dOMMMMMKOdc:'.. ''ll,ONMWx:.  .'''''  .'' ..... .oOMMXo ..     'kNWx.:NMMMWOo;
+                                                              ..',c0KNWKXK0OOK0XWMNNkl,.      .,      .,.;;l,o.'            oOXNk 'OWWWOx;,.
+                                                              . .    ...c'llxxod',   ;;c:olxd<a href="repo.html">repos</a>:klkodlodxOXKlocko0k0d0kkc.  ,llc   .
+                                                                ..                    .'.      .. ........      ;KK:
+                                                                                     ;XX.     ',..''..,''',...   ;WN,
+                                                                       ;lxkkxkxdxxkkx:KK.    .,'.'''.''.  .'',   .l;ldkkxxdxxdkd:'
+                                                                    lddl;.            lK0.   .'..'.....''.      :OOd;.         ,lodxo;
+                                                                   .                  .;oKd     ..,,'''...    :do.                   ,.
+                                                                                         .x0c     ....     .cdc.
+                                                                                          .ck0do:'. ...;coxO:. .
+                                                                                              .;loxdkoxc:.</pre>
     </div>
 
-    <!-- Scripts -->
     <script src="assets/js/config.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
