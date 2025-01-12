@@ -1,22 +1,22 @@
 /* Theme colors - automatically generated */
 :root {
     /* Colors extracted from pywal */
-    --color0: #121b19;
-    --color1: #35A2A1;
-    --color2: #33EEED;
-    --color3: #59F6F4;
-    --color4: #A3A7A7;
-    --color5: #F89EF9;
-    --color6: #A3FAF9;
-    --color7: #e8e8f0;
-    --color8: #a2a2a8;
-    --color9: #35A2A1;
-    --color10: #33EEED;
-    --color11: #59F6F4;
-    --color12: #A3A7A7;
-    --color13: #F89EF9;
-    --color14: #A3FAF9;
-    --color15: #e8e8f0;
+    --color0: #000200;
+    --color1: #181918;
+    --color2: #022D02;
+    --color3: #242624;
+    --color4: #034B03;
+    --color5: #006D00;
+    --color6: #264B26;
+    --color7: #88a888;
+    --color8: #5f755f;
+    --color9: #181918;
+    --color10: #022D02;
+    --color11: #242624;
+    --color12: #034B03;
+    --color13: #006D00;
+    --color14: #264B26;
+    --color15: #88a888;
 }
 
     /* Additional theme variables */
@@ -24,4 +24,4 @@
     --flicker-color: rgba(152, 217, 2, 0.01);
     --text-shadow-color: var(--color1);
     --header-shadow-color: var(--color0);
-    }
+}
