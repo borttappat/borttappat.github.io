@@ -1,22 +1,23 @@
 /* Theme colors - automatically generated */
 :root {
     /* Colors extracted from pywal */
-    --color0: #0D0D0D;
-    --color1: #226E1B;
-    --color2: #264D23;
-    --color3: #296A23;
-    --color4: #1A8E0F;
-    --color5: #1EA312;
-    --color6: #1FD00F;
-    --color7: #83f579;
-    --color8: #0D0D0D;
-    --color9: #226E1B;
-    --color10: #264D23;
-    --color11: #296A23;
-    --color12: #1A8E0F;
-    --color13: #1EA312;
-    --color14: #1FD00F;
-    --color15: #83f579;
+    --color0: #000200;
+    --color1: #181918;
+    --color2: #022D02;
+    --color3: #242624;
+    --color4: #034B03;
+    --color5: #006D00;
+    --color6: #264B26;
+    --color7: #88a888;
+    --color8: #5f755f;
+    --color9: #181918;
+    --color10: #022D02;
+    --color11: #242624;
+    --color12: #034B03;
+    --color13: #006D00;
+    --color14: #264B26;
+    --color15: #88a888;
+}
 
     /* Additional theme variables */
     --scanline-color: rgba(12, 12, 12, 0.1);
