@@ -112,14 +112,15 @@ pre {
 .ascii-art {
     color: var(--color1);
     font-size: 14px;
-    line-height: 1.2;
+    line-height: 1;
     text-align: left;
     white-space: pre;
+    margin-bottom: 2em;
     font-family: 'VT323', monospace;
+    transform: translateX(-50px);
+    margin-left: auto;
+    margin-right: auto;
     text-shadow: 0 0 2px var(--text-shadow-color);
-    margin: 0;
-    padding: 0;
-    display: block;
 }
 
 /* Status information */
