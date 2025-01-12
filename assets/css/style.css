@@ -117,10 +117,18 @@ pre {
     white-space: pre;
     margin-bottom: 2em;
     font-family: 'VT323', monospace;
-    transform: translateX(-750px);
+    transform: translateX(-75px);
     margin-left: auto;
     margin-right: auto;
     text-shadow: 0 0 2px var(--text-shadow-color);
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .ascii-art {
+        font-size: 10px;
+        transform: translateX(-25px);
+    }
 }
 
 /* Status information */
