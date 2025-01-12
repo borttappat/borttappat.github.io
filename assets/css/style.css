@@ -117,11 +117,9 @@ pre {
     white-space: pre;
     font-family: 'VT323', monospace;
     text-shadow: 0 0 2px var(--text-shadow-color);
-    display: block;
-    width: 120ch;
-    margin-left: calc(50% - 60ch);
+    margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    display: block;
 }
 
 /* Status information */
