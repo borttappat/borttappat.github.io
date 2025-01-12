@@ -18,19 +18,34 @@ jobs:
           WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
         run: |
           mkdir -p assets/js
+          echo "Creating config.js..."
           cat > assets/js/config.js << EOL
           const config = {
             weatherApiKey: '${{ secrets.WEATHER_API_KEY }}'
           };
           EOL
+          echo "Config.js created. Contents:"
+          cat assets/js/config.js
+          
+      - name: Verify file exists
+        run: |
+          if [ -f assets/js/config.js ]; then
+            echo "config.js exists"
+            ls -la assets/js/
+          else
+            echo "config.js was not created!"
+            exit 1
+          fi
           
       - name: Commit and push if changed
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git status
           git add assets/js/config.js
-          git commit -m "Update config.js" || exit 0
-          git push
+          git status
+          git commit -m "Update config.js" || echo "No changes to commit"
+          git push || echo "No changes to push"
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
