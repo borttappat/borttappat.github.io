@@ -1,5 +1,4 @@
 name: Build and Deploy
-
 on:
   push:
     branches: [ main ]
@@ -14,19 +13,38 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      
+        
+      - name: Debug environment
+        run: |
+          pwd
+          ls -la
+          echo "Repository contents:"
+          ls -R
+          
       - name: Create config.js
         run: |
+          echo "Creating js directory..."
           mkdir -p assets/js
+          echo "Writing config.js..."
           echo "const config = { weatherApiKey: '${{ secrets.WEATHER_API_KEY }}' };" > assets/js/config.js
-      
+          echo "Directory contents after creation:"
+          ls -la assets/js/
+          
       - name: Display config.js
-        run: cat assets/js/config.js
-      
+        run: |
+          echo "Config.js contents:"
+          cat assets/js/config.js
+          
       - name: Commit and push
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          echo "Git status before add:"
+          git status
           git add assets/js/config.js
+          echo "Git status after add:"
+          git status
           git commit -m "Update config.js" || echo "No changes to commit"
           git push || echo "No changes to push"
+          echo "Final directory check:"
+          ls -la assets/js/
