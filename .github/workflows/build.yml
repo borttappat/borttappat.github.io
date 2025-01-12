@@ -9,43 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          
-      - name: Create JS file with API key
-        env:
-          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Create config.js
         run: |
           mkdir -p assets/js
-          echo "Creating config.js..."
-          cat > assets/js/config.js << EOL
-          const config = {
-            weatherApiKey: '${{ secrets.WEATHER_API_KEY }}'
-          };
-          EOL
-          echo "Config.js created. Contents:"
-          cat assets/js/config.js
+          echo "const config = { weatherApiKey: '${{ secrets.WEATHER_API_KEY }}' };" > assets/js/config.js
           
-      - name: Verify file exists
+      - name: Commit changes
         run: |
-          if [ -f assets/js/config.js ]; then
-            echo "config.js exists"
-            ls -la assets/js/
-          else
-            echo "config.js was not created!"
-            exit 1
-          fi
-          
-      - name: Commit and push if changed
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          git status
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           git add assets/js/config.js
-          git status
           git commit -m "Update config.js" || echo "No changes to commit"
           git push || echo "No changes to push"
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
