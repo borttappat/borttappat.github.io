@@ -92,6 +92,12 @@ body {
 .ascii-art a {
     color: var(--color1);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.ascii-art a:hover {
+    color: var(--color6);
+    text-shadow: 0 0 8px var(--color6);
 }
 
 /* Categories layout */
