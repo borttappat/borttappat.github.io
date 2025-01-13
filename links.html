@@ -4,49 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>grief_links</title>
-    
     <link rel="stylesheet" href="assets/css/colors.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="scanlines"></div>
     <div class="flicker"></div>
-    <div class="content">
-        <div class="top-content">
-            <div class="left-content">
-                <h1>grief_links</h1>
-                <div id="clock"></div>
-                <div id="ip-display" class="ip-info">IP: fetching...</div>
-                <div id="location-display" class="location-info">Location: fetching...</div>
-                <div id="weather-display" class="weather-info">Weather: fetching...</div>
-            </div>
-            <pre class="ascii-art">
-                              
-                      cXd,                             .Kk
-                     .XMNx.                           doMMd
-                     oxWxdc                          .xlNXx:
-                       ko                            '. X.  
-                     .'K,.                           . Od.  
-                   ..oK'..      ..:clccclloo.        .. kO.
-                  ..XNc ..   .col'        .Ox ,.  ..... .KNc
-                  ..XNdOdl,;odl'   'l .   :lxW..loo;;:cdxkMx.
-                   ..cdOOkxo,     kWWk:..;0NX:    ,dxkKKOxc..
-                 ...;'.:cdkxxkkxo'.;d0KOkkxxdoc;;,:;c, ....
-                .xKX00Odc;'. .         .'dOOxkxkkxxkO0kOKKOd.
-               xMMK;. ..          'xO0KNXx;          oWWd;0MMO.
-              lMMMx.xO;.       .cXMNkl,  cOKl.        ;kW';MMM0
-              ;KMMWKkk       l0WXk;       ,kXW0l      .oX.0MMWk
-              ,c0NWNkdcodO000x.             'dk:   .lK0;0MNkc.
-                 .,clodo:. ',;:cooc::lllloxOo:cooddc..cc. .
-                             'lk'           '.Kx
-                 .;llollllolo0.              ollollllllc,
-                '             :xl           cl.          '     
-                                lxl,.   'coc.
-                                   .;clll;
-            </pre>
-        </div>
-        
-        <div class="categories-container">
+    <div class="container">
+        <pre class="ascii-art">                                                                                            
+                                                                                                                    
+                                                                                                                    
+                                                                                                                    
+                                         ;xl..                                               .'d:'
+                                        dKMO,c                                              '.;WMdc
+                                        KMMMdOc                                             klXMMMk
+                                      .kMMMNk,O                                            .0<a href="https://github.com/borttappat/dotfiles">DOTS</a>0Bc.
+                                      x'lkM0.xO                                           .,No,MMkloo
+                                     ..   Nx  ..                                          ''. ,WO   ..
+                                    .''.  K0 .''                                         '''. :Mc  ''.
+                                    .''. oM: '''                                         '... .XK. .'.
+                                   .'.  kNl  ..'.                ..;.:..               .'    . ,XX, ..
+                                   .. :NX,  ''.'.        . .:xokldcocooxkkOx:          ..  ...  .OWd
+                                  ..;KMNl   .'.'        ,xOkc.            .,OXl       .'' .'     ,0MX:
+                                  ' 0MNk:'.  ..'.     lkk'                   dMx .xo.  ....''.. .;dXWMc
+                                 ...kMWdokx::c,:.',d0xl        c' .    .. occkMX  .:Oko, .;;;..;dllKMW:.
+                                  ..'<a href="resume.html">RESUME</a>XKOXKO:.      'O0KWKc.  .  ;kWK0WXl     .c0KK<span id="time">00:00:00</span>0d..
+                                    ..  ';clll;,           .cWWWNOOc...'ck0WWx'         .';odkxxdl'.. ...
+                                 .  .'.... .'.:,c,':;lclco:. ..oc0KMW0xl:c:::cl,c;c,c.:',c.;..      . .
+                                  ..;lod;odO0ONON0KKOKkOxkdx,      .:dxXkK<a href="links.html">LINKS</a>oldcxcc:clllck;l;lc, .
+                                .o0NNWXXWO0;l .                         ,:x00N0NX<span id="ip-display">[_no_ip_address_]</span>dW0XXKk;
+                              .kWMMMXcl.'                      ll;,,loXKKNNx:.. .          ,,0NWWxcxdNMMMNo
+                             'NMMMMd'.   .;'                ' oxXXMMWXNXOc                   .xXMMX'.'oMMMMN,
+                             KMMMMMx. .K0c,.              .cKWMMWKdo,.   ,ox00;'          ..  .,oKMO..:MMMMMW.
+                             XWMMMMOd.dWk  .           ,lkXWMWOc;   .    :l0MMNXx:'        .  .. ;M0. lWMMMMWc
+                             l0WMMMMMKxOO'           ,xNNMWOl'  ........    ;dKMMNXo'     ..     KMo cMMMMMN0
+                              ;dOMMMMMKOdc:'.. ''ll,ONMWx:.  .'''''  .'' ..... .oOMMXo ..     'kNWx.:NMMMWOo;
+                              ..',c0KNWKXK0OOK0XWMNNkl,.      .,      .,.;;l,o.'            oOXNk 'OWWWOx;,.
+                              . .    ...c'llxxod',   ;;c:olxd<a href="https://github.com/borttappat?tab=repositories">REPOS</a>:klkodlodxOXKlocko0k0d0kkc.  ,llc   .
+                                ..                    .'.      .. ........      ;KK:
+                                                     ;XX.     ',..''..,''',...   ;WN,
+                                       ;lxkkxkxdxxkkx:KK.    .,'.'''.''.  .'',   .l;ldkkxxdxxdkd:'
+                                    lddl;.            lK0.   .'..'.....''.      :OOd;.         ,lodxo;
+                                   .                  .;oKd     ..,,'''...    :do.                   ,.
+                                                         .x0c     ....     .cdc.
+                                                          .ck0do:'. ...;coxO:. .
+                                                              .;loxdkoxc:.</pre>
+
+        <div class="categories-grid">
             <div class="category">
                 <h2>Hacktivity</h2>
                 <ul>
@@ -61,49 +65,28 @@
                     <li><a href="https://lolbas-project.github.io/">LOLBAS</a></li>
                     <li><a href="https://www.stationx.net/crackmapexec-cheat-sheet">CME_cheat_sheet</a></li>
                     <li><a href="https://book.hacktricks.xyz/">HackTricks</a></li>
+                    <li><a href="https://ippsec.rocks/#">IPPSEC</a></li>
+                    <li><a href="https://www.exploit-db.com/">Exploit-DB</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h2>Resources</h2>
+                <ul>
                     <li><a href="https://vuldb.com/">VulDB</a></li>
                     <li><a href="https://github.com/insidetrust/statistically-likely-usernames">SLUs</a></li>
                     <li><a href="https://crt.sh/">crt.sh</a></li>
                     <li><a href="https://gchq.github.io/CyberChef/">CyberChef</a></li>
-                    <li><a href="https://ippsec.rocks/#">IPPSEC</a></li>
-                    <li><a href="https://www.exploit-db.com/">Exploit-DB</a></li>
                     <li><a href="https://www.virustotal.com/gui/home/upload">VirusTotal</a></li>
-                    <li><a href="https://github.com/ihebski/DefaultCreds-cheat-sheet?tab=readme-ov-file">DefaultCreds</a></li>
+                    <li><a href="https://github.com/ihebski/DefaultCreds-cheat-sheet">DefaultCreds</a></li>
                     <li><a href="https://bgp.he.net/">Hurricane_Electric</a></li>
                     <li><a href="https://www.exploit-db.com/google-hacking-database">Dorking</a></li>
                     <li><a href="https://viewdns.info/">DNSinfo</a></li>
-                    <li><a href="https://www.willhackforsushi.com/sec504/SMB-Access-from-Linux.pdf">RPCClient_ChSh</a></li>
-                    <li><a href="https://github.com/pentestmonkey/yaptest/tree/master">YAP-lists</a></li>
-                    <li><a href="https://hackvertor.co.uk/urls/10">XSS_vectors</a></li>
                     <li><a href="https://web-check.xyz/">web-check.xyz</a></li>
                     <li><a href="https://inventory.raw.pm/tools.html">Rawsec_tools</a></li>
+                    <li><a href="https://vim.rtorr.com/">Vim_Cheat_Sheet</a></li>
+                    <li><a href="https://wiki.nikiv.dev/package-managers/nix/">Nix</a></li>
                 </ul>
-            </div>
-
-            <div class="middle-column">
-                <div class="category">
-                    <h2>Creativity</h2>
-                    <ul>
-                        <li><a href="https://www.reddit.com/r/unixporn/">Unixpr0n</a></li>
-                        <li><a href="https://wallhaven.cc/latest">WallHaven</a></li>
-                        <li><a href="https://music.youtube.com">Music</a></li>
-                        <li><a href="https://claude.ai/new">Claude</a></li>
-                        <li><a href="https://www.youtube.com/">YouTube</a></li>
-                        <li><a href="https://github.com/borttappat/dotfiles">Git</a></li>
-                        <li><a href="https://wiki.nikiv.dev/package-managers/nix/">Nix</a></li>
-                    </ul>
-                </div>
-                
-                <div class="category">
-                    <h2>Productivity</h2>
-                    <ul>
-                        <li><a href="https://mail.proton.me/u/0/inbox">ProtonMail</a></li>
-                        <li><a href="https://mail.google.com/mail/u/0/#inbox">GMail</a></li>
-                        <li><a href="https://vim.rtorr.com/">Vim_Cheat_Sheet</a></li>
-                        <li><a href="https://discord.com/channels/">Discord</a></li>
-                        <li><a href="https://app.diagrams.net/">draw.io</a></li>
-                    </ul>
-                </div>
             </div>
 
             <div class="category">
@@ -119,19 +102,28 @@
                     <li><a href="https://github.com/EdOverflow/can-i-take-over-xyz">can-i-take-over-xyz</a></li>
                     <li><a href="https://dnsdumpster.com/">dnsdumpster</a></li>
                     <li><a href="https://ddosecrets.com/">ddosecrets</a></li>
-                    <li><a href="https://adsecurity.org/?page_id=41">AD_Security</a></li>
-                    <li><a href="https://live.sysinternals.com/">live.sysinternals</a></li>
-                    <li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/adexplorer">AD_explorer</a></li>
-                    <li><a href="https://github.com/TalEliyahu/awesome-security-newsletters?tab=readme-ov-file">awesome_security-newsletters</a></li>
-                    <li><a href="https://github.com/saisathvik1/OSCP-Cheatsheet">OSCP-cheatsheet</a></li>
-                    <li><a href="https://www.virtualhackinglabs.com/">virtual_hacking_labs</a></li>
                     <li><a href="https://grep.app/">grep.app</a></li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <h2>Creativity</h2>
+                <ul>
+                    <li><a href="https://www.reddit.com/r/unixporn/">Unixpr0n</a></li>
+                    <li><a href="https://wallhaven.cc/latest">WallHaven</a></li>
+                    <li><a href="https://music.youtube.com">Music</a></li>
+                    <li><a href="https://claude.ai/new">Claude</a></li>
+                    <li><a href="https://www.youtube.com/">YouTube</a></li>
+                    <li><a href="https://github.com/borttappat/dotfiles">Git</a></li>
+                    <li><a href="https://mail.proton.me/u/0/inbox">ProtonMail</a></li>
+                    <li><a href="https://mail.google.com/mail/u/0/#inbox">GMail</a></li>
+                    <li><a href="https://discord.com/channels/">Discord</a></li>
+                    <li><a href="https://app.diagrams.net/">draw.io</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="assets/js/config.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
