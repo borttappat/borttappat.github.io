@@ -204,6 +204,6 @@ body {
         font-size: 10px;
     }
     .categories-grid {
-        grid-template-columns: repeat(4, 9em);
+        grid-template-columns: repeat(4, 12em);
     }
 }
