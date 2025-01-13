@@ -109,7 +109,7 @@ body {
     width: fit-content;
     padding: 0;
     line-height: 1;
-    transform: translateX(-75px); /* Match ASCII art transformation */
+    transform: translateX(-45px); /* Match ASCII art transformation */
 }
 
 .category {
