@@ -104,7 +104,7 @@ body {
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(4, 10em);
-    gap: 0.5em;
+    gap: 0.75em;
     margin: 1em auto;
     width: fit-content;
     padding: 0;
