@@ -109,9 +109,7 @@ body {
     width: fit-content;
     padding: 0;
     line-height: 1;
-    transform: translateX(20px); /* Match ASCII art transformation */
-    margin-left: auto;           /* Center the grid */
-    margin-right: auto;          /* Center the grid */
+    transform: translateX(-75px); /* Match ASCII art transformation */
 }
 
 .category {
