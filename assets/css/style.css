@@ -103,13 +103,15 @@ body {
 /* Categories layout */
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(4, 7em);
+    grid-template-columns: repeat(4, 8em);
     gap: 0.25em;
     margin: 1em auto;
     width: fit-content;
     padding: 0;
     line-height: 1;
-    margin-left: 2em;
+    transform: translateX(-75px); /* Match ASCII art transformation */
+    margin-left: auto;           /* Center the grid */
+    margin-right: auto;          /* Center the grid */
 }
 
 .category {
