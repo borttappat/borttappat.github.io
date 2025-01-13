@@ -94,20 +94,6 @@ function setupEffects() {
     effectsContainer.appendChild(glow);
     body.appendChild(effectsContainer);
     
-    const toggle = document.createElement('button');
-    toggle.className = 'effects-toggle';
-    toggle.textContent = 'CRT';
-    body.appendChild(toggle);
-    
-    let effectsEnabled = localStorage.getItem('crtEffects') !== 'disabled';
-    effectsContainer.style.display = effectsEnabled ? 'block' : 'none';
-    
-    toggle.addEventListener('click', () => {
-        effectsEnabled = !effectsEnabled;
-        effectsContainer.style.display = effectsEnabled ? 'block' : 'none';
-        localStorage.setItem('crtEffects', effectsEnabled ? 'enabled' : 'disabled');
-    });
-    
     const links = document.querySelectorAll('a');
     links.forEach(link => {
         link.classList.add('glitch-hover');
