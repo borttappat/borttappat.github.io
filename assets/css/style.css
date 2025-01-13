@@ -103,9 +103,9 @@ body {
 /* Categories layout */
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(4, 140px);
-    gap: 5px;
-    margin: 20px auto;
+    grid-template-columns: repeat(4, 7em);
+    gap: 0.25em;
+    margin: 1em auto;
     width: fit-content;
     padding: 0;
     line-height: 1;
@@ -117,7 +117,7 @@ body {
 }
 
 .category h2 {
-    margin-bottom: 4px;
+    margin-bottom: 0.2em;
     color: var(--color2);
     font-size: 20px;
     font-family: 'VT323', monospace;
@@ -152,28 +152,38 @@ body {
 
 /* Status information */
 #clock {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 20px;
     color: var(--color6);
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
 }
 
 .ip-info, 
 .location-info, 
 .weather-info {
-    font-size: 12px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 0.5em;
     color: var(--color4);
-    font-family: 'Press Start 2P', monospace;
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.1em;
 }
 
 /* Responsive design */
 @media (max-width: 1200px) {
-    .categories-grid {
-        grid-template-columns: repeat(2, 180px);
-    }
-    
     .ascii-art {
         font-size: 12px;
+    }
+    .category h2,
+    .category a,
+    #clock,
+    .ip-info,
+    .location-info,
+    .weather-info {
+        font-size: 12px;
+    }
+    .categories-grid {
+        grid-template-columns: repeat(4, 7em);
     }
 }
 
@@ -181,13 +191,19 @@ body {
     body {
         padding: 10px;
     }
-
     .ascii-art {
         font-size: 10px;
         transform: translateX(-25px);
     }
-    
+    .category h2,
+    .category a,
+    #clock,
+    .ip-info,
+    .location-info,
+    .weather-info {
+        font-size: 10px;
+    }
     .categories-grid {
-        grid-template-columns: 180px;
+        grid-template-columns: repeat(4, 7em);
     }
 }
