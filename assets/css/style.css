@@ -65,47 +65,12 @@ body {
     z-index: 1;
     animation: buzz 0.1s infinite alternate;
     text-align: center;
-    max-width: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/* Typography */
-h1 {
-    color: var(--color2);
-    font-size: 18px;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px var(--header-shadow-color);
-}
-
-h2 {
-    color: var(--color5);
-    font-size: 14px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-shadow: 0 0 2px var(--text-shadow-color);
-}
-
-a {
-    color: var(--color1);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    /* text-transform: lowercase; */
-}
-
-a:hover {
-    color: var(--color6);
-    /*text-shadow: 0 0 8px var(--color6);*/
-}
-
-pre {
-    color: var(--color7);
-    font-size: 14px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    font-family: 'VT323', monospace;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* ASCII art */
@@ -124,11 +89,50 @@ pre {
     letter-spacing: 0.1em;
 }
 
-@media (max-width: 768px) {
-    .ascii-art {
-        font-size: 10px;
-        transform: translateX(-25px);
-    }
+/* Categories layout */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 180px);
+    gap: 15px;
+    margin: 20px auto;
+    width: fit-content;
+    padding: 0 20px;
+}
+
+.category {
+    min-width: 0;
+    text-align: left;
+}
+
+.category h2 {
+    margin-bottom: 8px;
+    color: var(--color2);
+    font-size: 20px;
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.1em;
+}
+
+.category ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.category li {
+    margin-bottom: 3px;
+}
+
+.category a {
+    color: var(--color1);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+
+.category a:hover {
+    color: var(--color6);
 }
 
 /* Status information */
@@ -147,107 +151,10 @@ pre {
     font-family: 'Press Start 2P', monospace;
 }
 
-/* Navigation */
-.links {
-    display: flex;
-    gap: 2em;
-    justify-content: center;
-    margin: 2em 0;
-}
-
-/* Categories layout */
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(150px, 200px)); /* Made columns narrower */
-    gap: 20px; /* Reduced gap between columns */
-    margin: 20px auto; /* Reduced top margin */
-    width: fit-content; /* This helps with centering */
-    padding: 0 20px;
-}
-
-@media (max-width: 1200px) {
-    .categories-grid {
-        grid-template-columns: repeat(2, minmax(150px, 200px));
-    }
-}
-
-@media (max-width: 768px) {
-    .categories-grid {
-        grid-template-columns: minmax(150px, 200px);
-    }
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.middle-column {
-    min-width: 0;
-}
-
-.middle-column .category:first-child {
-    margin-bottom: 30px;
-}
-
-.category {
-    min-width: 0;
-    text-align: left;
-}
-
-.category h2 {
-    margin-bottom: 15px;
-    color: var(--color2);
-}
-
-.category h2 {
-    margin-bottom: 10px; /* Reduced space after headers */
-    color: var(--color2);
-    font-size: 12px; /* Smaller header size */
-}
-
-.category li {
-    margin-bottom: 4px; /* Reduced space between lines */
-    font-size: 10px; /* Smaller font size for links */
-}
-
-.category a {
-    color: var(--color1);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.category a:hover {
-    color: var(--color6);
-}
-
-/* Lists */
-.category ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-li {
-    margin-bottom: 4px;
-    font-size: 10px;
-}
-
-/* Status container */
-.status-info {
-    text-align: center;
-    margin-top: 2em;
-}
-
 /* Responsive design */
 @media (max-width: 1200px) {
-    .categories-container {
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    .categories-grid {
+        grid-template-columns: repeat(2, 180px);
     }
     
     .ascii-art {
@@ -265,13 +172,7 @@ li {
         transform: translateX(-25px);
     }
     
-    .links {
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-    }
-    
-    .categories-container {
-        grid-template-columns: 1fr;
+    .categories-grid {
+        grid-template-columns: 180px;
     }
 }
