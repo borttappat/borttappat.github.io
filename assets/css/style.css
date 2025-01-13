@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+:root {
+    --glow-strength: 2px;
+    --scanline-size: 2px;
+    --glitch-intensity: 0.2s;
+}
+
 body {
     background-color: var(--color0);
     color: var(--color1);
@@ -8,9 +14,21 @@ body {
     margin: 0;
     padding: 20px;
     min-height: 100vh;
-    text-shadow: 0 0 2px var(--text-shadow-color);
+    text-shadow: 0 0 var(--glow-strength) var(--text-shadow-color);
     min-width: 320px;
     line-height: 1.2;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.crt-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
 }
 
 .scanlines {
@@ -21,15 +39,26 @@ body {
     height: 100%;
     background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0) 50%,
+        transparent,
+        transparent 50%,
         var(--scanline-color) 50%,
         var(--scanline-color)
     );
-    background-size: 100% 4px;
-    z-index: 1000;
-    pointer-events: none;
+    background-size: 100% var(--scanline-size);
     opacity: 0.3;
+    animation: scanline-scroll 8s linear infinite;
+    pointer-events: none;
+}
+
+.glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 var(--glow-strength) var(--color1);
+    opacity: 0.2;
+    pointer-events: none;
 }
 
 .flicker {
@@ -42,17 +71,6 @@ body {
     z-index: 1001;
     pointer-events: none;
     animation: flicker 0.2s infinite;
-}
-
-@keyframes flicker {
-    0% { opacity: 0.9; }
-    50% { opacity: 1; }
-    100% { opacity: 0.9; }
-}
-
-@keyframes buzz {
-    0% { transform: translateX(0) translateY(0); }
-    100% { transform: translateX(0.2px) translateY(0.2px); }
 }
 
 .container {
@@ -145,7 +163,7 @@ body {
     color: var(--color6);
 }
 
-#clock {
+#time {
     font-size: 20px;
     color: var(--color6);
     font-family: 'VT323', monospace;
@@ -163,13 +181,66 @@ body {
     letter-spacing: 0.1em;
 }
 
+.effects-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: var(--color0);
+    border: 1px solid var(--color1);
+    color: var(--color1);
+    padding: 8px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.effects-toggle:hover {
+    background: var(--color1);
+    color: var(--color0);
+}
+
+@keyframes scanline-scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(var(--scanline-size)); }
+}
+
+@keyframes flicker {
+    0% { opacity: 0.9; }
+    50% { opacity: 1; }
+    100% { opacity: 0.9; }
+}
+
+@keyframes buzz {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(0.2px) translateY(0.2px); }
+}
+
+@keyframes text-glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.glitch-hover {
+    position: relative;
+}
+
+.glitch-hover:hover {
+    animation: text-glitch var(--glitch-intensity) linear;
+}
+
 @media (max-width: 1200px) {
     .ascii-art {
         font-size: 12px;
     }
     .category h2,
     .category a,
-    #clock,
+    #time,
     .ip-info,
     .location-info,
     .weather-info {
@@ -191,7 +262,7 @@ body {
     }
     .category h2,
     .category a,
-    #clock,
+    #time,
     .ip-info,
     .location-info,
     .weather-info {
@@ -201,5 +272,11 @@ body {
         grid-template-columns: repeat(2, 15em);
         transform: translateX(0);
         gap: 1em;
+    }
+    .effects-toggle {
+        bottom: 10px;
+        right: 10px;
+        font-size: 6px;
+        padding: 6px;
     }
 }
