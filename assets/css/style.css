@@ -158,23 +158,22 @@ pre {
 /* Categories layout */
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin: 40px auto;
+    grid-template-columns: repeat(4, minmax(150px, 200px)); /* Made columns narrower */
+    gap: 20px; /* Reduced gap between columns */
+    margin: 20px auto; /* Reduced top margin */
+    width: fit-content; /* This helps with centering */
     padding: 0 20px;
-    max-width: 1400px;
-    width: 100%;
 }
 
 @media (max-width: 1200px) {
     .categories-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(150px, 200px));
     }
 }
 
 @media (max-width: 768px) {
     .categories-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(150px, 200px);
     }
 }
 
@@ -206,15 +205,15 @@ pre {
     color: var(--color2);
 }
 
-.category ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.category h2 {
+    margin-bottom: 10px; /* Reduced space after headers */
+    color: var(--color2);
+    font-size: 12px; /* Smaller header size */
 }
 
 .category li {
-    margin-bottom: 8px;
-    font-size: 12px;
+    margin-bottom: 4px; /* Reduced space between lines */
+    font-size: 10px; /* Smaller font size for links */
 }
 
 .category a {
@@ -228,10 +227,10 @@ pre {
 }
 
 /* Lists */
-ul {
-    list-style-type: none;
-    padding: 0;
+.category ul {
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 li {
