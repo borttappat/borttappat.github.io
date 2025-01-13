@@ -1,8 +1,6 @@
-/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-/* Common base styles */
 body {
     background-color: var(--color0);
     color: var(--color1);
@@ -15,7 +13,6 @@ body {
     line-height: 1.2;
 }
 
-/* CRT screen effects */
 .scanlines {
     position: fixed;
     top: 0;
@@ -47,7 +44,6 @@ body {
     animation: flicker 0.2s infinite;
 }
 
-/* Animations */
 @keyframes flicker {
     0% { opacity: 0.9; }
     50% { opacity: 1; }
@@ -59,7 +55,6 @@ body {
     100% { transform: translateX(0.2px) translateY(0.2px); }
 }
 
-/* Container and layout */
 .container {
     position: relative;
     z-index: 1;
@@ -73,7 +68,6 @@ body {
     box-sizing: border-box;
 }
 
-/* ASCII art */
 .ascii-art {
     color: var(--color1);
     font-size: 20px;
@@ -100,21 +94,21 @@ body {
     text-shadow: 0 0 8px var(--color6);
 }
 
-/* Categories layout */
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(4, 12em);
-    gap: 0.5em;
+    grid-template-columns: repeat(4, 15em);
+    gap: 2em;
     margin: 1em auto;
     width: fit-content;
     padding: 0;
     line-height: 1;
-    transform: translateX(-25px); /* Match ASCII art transformation */
+    transform: translateX(50px);
 }
 
 .category {
     min-width: 0;
     text-align: left;
+    margin-right: 1em;
 }
 
 .category h2 {
@@ -151,7 +145,6 @@ body {
     color: var(--color6);
 }
 
-/* Status information */
 #clock {
     font-size: 20px;
     color: var(--color6);
@@ -170,7 +163,6 @@ body {
     letter-spacing: 0.1em;
 }
 
-/* Responsive design */
 @media (max-width: 1200px) {
     .ascii-art {
         font-size: 12px;
@@ -184,7 +176,8 @@ body {
         font-size: 12px;
     }
     .categories-grid {
-        grid-template-columns: repeat(4, 7em);
+        grid-template-columns: repeat(4, 10em);
+        transform: translateX(25px);
     }
 }
 
@@ -205,6 +198,8 @@ body {
         font-size: 10px;
     }
     .categories-grid {
-        grid-template-columns: repeat(4, 12em);
+        grid-template-columns: repeat(2, 15em);
+        transform: translateX(0);
+        gap: 1em;
     }
 }
