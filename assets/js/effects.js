@@ -30,7 +30,7 @@ function createGlitchEffect(element) {
     });
 }
 
-function createClockGlitch(element) {
+function createConstantGlitch(element) {
     setInterval(() => {
         if (Math.random() < 0.1) {  // 10% chance of glitch
             const text = element.textContent;
@@ -97,11 +97,17 @@ function initializeEffects() {
     const links = document.querySelectorAll('a');
     links.forEach(createGlitchEffect);
     
-    // Initialize clock effect
-    const clockElement = document.getElementById('time');
-    if (clockElement) {
-        createClockGlitch(clockElement);
-    }
+    // Initialize constant glitch effects for clock and IP
+    const elementsToGlitch = [
+        document.getElementById('time'),
+        document.getElementById('ip-display')
+    ];
+    
+    elementsToGlitch.forEach(element => {
+        if (element) {
+            createConstantGlitch(element);
+        }
+    });
     
     // Add flicker to links
     addFlickerToLinks();
@@ -126,8 +132,8 @@ document.addEventListener('DOMContentLoaded', initializeEffects);
 // Re-initialize effects when content changes
 const observer = new MutationObserver((mutations) => {
     mutations.forEach(mutation => {
-        if (mutation.target.id === 'time') {
-            // Don't reinitialize for clock updates
+        if (mutation.target.id === 'time' || mutation.target.id === 'ip-display') {
+            // Don't reinitialize for clock or IP updates
             return;
         }
         initializeEffects();
