@@ -24,6 +24,10 @@
     --letter-spacing: 0.1em;
 }
 
+h1, h2, h3, h4, h5, h6, p, span, div, a, li {
+    animation: buzz 0.1s infinite alternate;
+}
+
 body {
     background-color: var(--color0);
     color: var(--color1);
@@ -218,6 +222,7 @@ a:hover::after {
     min-width: 0;
     text-align: left;
     margin-right: 1em;
+    animation: buzz 0.1s infinite alternate;
 }
 
 .category h2 {
