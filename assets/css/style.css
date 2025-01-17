@@ -1,5 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* Font face definition */
+@font-face {
+    font-family: 'Cozette';
+    src: url('../fonts/CozetteVector.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
     --glitch-duration: 0.2s;
@@ -9,12 +15,19 @@
     --mouse-y: 0.5;
     --glow-strength: 2px;
     --scanline-size: 2px;
+    
+    /* Font variables */
+    --font-primary: 'Cozette', monospace;
+    --font-size-large: 20px;
+    --font-size-medium: 16px;
+    --font-size-small: 12px;
+    --letter-spacing: 0.1em;
 }
 
 body {
     background-color: var(--color0);
     color: var(--color1);
-    font-family: 'Press Start 2P', monospace;
+    font-family: var(--font-primary);
     margin: 0;
     padding: 20px;
     min-height: 100vh;
@@ -23,6 +36,9 @@ body {
     line-height: 1.2;
     position: relative;
     overflow-x: hidden;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
 }
 
 .crt-effects {
@@ -108,25 +124,25 @@ body {
 
 .ascii-art {
     color: var(--color1);
-    font-size: 20px;
+    font-size: var(--font-size-large);
     line-height: 1;
     text-align: left;
     white-space: pre;
     margin-bottom: 2em;
-    font-family: 'VT323', monospace;
+    font-family: var(--font-primary);
     transform: translateX(-75px);
     margin-left: auto;
     margin-right: auto;
     text-shadow: 0 0 2px var(--text-shadow-color);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--letter-spacing);
 }
 
 #time,
 #ip-display {
-    font-size: 20px;
+    font-size: var(--font-size-large);
     color: var(--color6);
-    font-family: 'VT323', monospace;
-    letter-spacing: 0.1em;
+    font-family: var(--font-primary);
+    letter-spacing: var(--letter-spacing);
     margin-bottom: 0.5em;
     position: relative;
     display: inline-block;
@@ -139,11 +155,11 @@ body {
 .ip-info, 
 .location-info, 
 .weather-info {
-    font-size: 20px;
+    font-size: var(--font-size-large);
     margin-bottom: 0.5em;
     color: var(--color4);
-    font-family: 'VT323', monospace;
-    letter-spacing: 0.1em;
+    font-family: var(--font-primary);
+    letter-spacing: var(--letter-spacing);
 }
 
 a {
@@ -153,6 +169,7 @@ a {
     text-decoration: none;
     transition: all 0.3s ease;
     animation: buzz 0.1s infinite alternate;
+    font-family: var(--font-primary);
 }
 
 a:hover {
@@ -206,9 +223,9 @@ a:hover::after {
 .category h2 {
     margin-bottom: 0.2em;
     color: var(--color2);
-    font-size: 20px;
-    font-family: 'VT323', monospace;
-    letter-spacing: 0.1em;
+    font-size: var(--font-size-large);
+    font-family: var(--font-primary);
+    letter-spacing: var(--letter-spacing);
     line-height: 1;
 }
 
@@ -224,9 +241,9 @@ a:hover::after {
 }
 
 .category a {
-    font-family: 'VT323', monospace;
-    font-size: 20px;
-    letter-spacing: 0.1em;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-large);
+    letter-spacing: var(--letter-spacing);
     line-height: 1;
 }
 
@@ -280,18 +297,16 @@ a:hover::after {
 }
 
 @media (max-width: 1200px) {
+    :root {
+        --font-size-large: 12px;
+        --font-size-medium: 10px;
+        --font-size-small: 8px;
+    }
+    
     .ascii-art {
-        font-size: 12px;
+        font-size: var(--font-size-large);
     }
-    .category h2,
-    .category a,
-    #time,
-    #ip-display,
-    .ip-info,
-    .location-info,
-    .weather-info {
-        font-size: 12px;
-    }
+    
     .categories-grid {
         grid-template-columns: repeat(4, 10em);
         transform: translateX(25px);
@@ -302,19 +317,17 @@ a:hover::after {
     body {
         padding: 10px;
     }
+    
+    :root {
+        --font-size-large: 10px;
+        --font-size-medium: 8px;
+        --font-size-small: 6px;
+    }
+    
     .ascii-art {
-        font-size: 10px;
         transform: translateX(-25px);
     }
-    .category h2,
-    .category a,
-    #time,
-    #ip-display,
-    .ip-info,
-    .location-info,
-    .weather-info {
-        font-size: 10px;
-    }
+    
     .categories-grid {
         grid-template-columns: repeat(2, 15em);
         transform: translateX(0);
