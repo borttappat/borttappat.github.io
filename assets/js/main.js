@@ -6,8 +6,8 @@ async function fetchIPAndLocation() {
         if (document.getElementById('ip-display')) {
             const element = document.getElementById('ip-display');
             element.classList.add('glitch-hover');
-            element.setAttribute('data-text', data.ip || '[_no_ip_address_]');
-            element.textContent = data.ip || '[_no_ip_address_]';
+            element.setAttribute('data-text', data.ip || '[no_ip_found]');
+            element.textContent = data.ip || '[no_ip_found]';
         }
         
         if (document.getElementById('location-display')) {
@@ -23,8 +23,8 @@ async function fetchIPAndLocation() {
         if (document.getElementById('ip-display')) {
             const element = document.getElementById('ip-display');
             element.classList.add('glitch-hover');
-            element.setAttribute('data-text', '[_no_ip_address_]');
-            element.textContent = '[_no_ip_address_]';
+            element.setAttribute('data-text', '[no_ip_found]');
+            element.textContent = '[no_ip_found]';
         }
         if (document.getElementById('location-display')) {
             const element = document.getElementById('location-display');
