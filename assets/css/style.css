@@ -2,9 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
+    --glitch-duration: 0.2s;
+    --glitch-intensity: 5px;
+    --distortion-speed: 0.1s;
+    --mouse-x: 0.5;
+    --mouse-y: 0.5;
     --glow-strength: 2px;
     --scanline-size: 2px;
-    --glitch-intensity: 0.2s;
 }
 
 body {
@@ -50,6 +54,34 @@ body {
     pointer-events: none;
 }
 
+.static-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.crt-flicker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at calc(var(--mouse-x) * 100%) calc(var(--mouse-y) * 100%),
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 80%
+    );
+    mix-blend-mode: overlay;
+    z-index: 1000;
+}
+
 .glow {
     position: fixed;
     top: 0;
@@ -59,18 +91,6 @@ body {
     box-shadow: inset 0 0 var(--glow-strength) var(--color1);
     opacity: 0.2;
     pointer-events: none;
-}
-
-.flicker {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--flicker-color);
-    z-index: 1001;
-    pointer-events: none;
-    animation: flicker 0.2s infinite;
 }
 
 .container {
@@ -101,15 +121,43 @@ body {
     letter-spacing: 0.1em;
 }
 
-.ascii-art a {
+a {
+    position: relative;
+    display: inline-block;
     color: var(--color1);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.ascii-art a:hover {
+a:hover {
     color: var(--color6);
-    text-shadow: 0 0 8px var(--color6);
+    text-shadow: 
+        0 0 5px var(--color6),
+        0 0 10px var(--color6),
+        0 0 15px var(--color6);
+    animation: glitch-text var(--glitch-duration) infinite;
+}
+
+a:hover::before,
+a:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+a:hover::before {
+    animation: glitch-top var(--glitch-duration) infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    color: var(--color4);
+}
+
+a:hover::after {
+    animation: glitch-bottom var(--glitch-duration) infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    color: var(--color2);
 }
 
 .categories-grid {
@@ -150,17 +198,10 @@ body {
 }
 
 .category a {
-    color: var(--color1);
-    text-decoration: none;
-    transition: color 0.3s ease;
     font-family: 'VT323', monospace;
     font-size: 20px;
     letter-spacing: 0.1em;
     line-height: 1;
-}
-
-.category a:hover {
-    color: var(--color6);
 }
 
 #time {
@@ -186,18 +227,28 @@ body {
     100% { transform: translateY(var(--scanline-size)); }
 }
 
-@keyframes flicker {
-    0% { opacity: 0.9; }
-    50% { opacity: 1; }
-    100% { opacity: 0.9; }
-}
-
 @keyframes buzz {
     0% { transform: translateX(0) translateY(0); }
     100% { transform: translateX(0.2px) translateY(0.2px); }
 }
 
-@keyframes text-glitch {
+@keyframes glitch-text {
+    0% { transform: none; opacity: 1; }
+    7% { transform: skew(-0.5deg, -0.9deg); opacity: 0.75; }
+    10% { transform: none; opacity: 1; }
+    27% { transform: none; opacity: 1; }
+    30% { transform: skew(0.8deg, -0.1deg); opacity: 0.75; }
+    35% { transform: none; opacity: 1; }
+    52% { transform: none; opacity: 1; }
+    55% { transform: skew(-1deg, 0.2deg); opacity: 0.75; }
+    50% { transform: none; opacity: 1; }
+    72% { transform: none; opacity: 1; }
+    75% { transform: skew(0.4deg, 1deg); opacity: 0.75; }
+    80% { transform: none; opacity: 1; }
+    100% { transform: none; opacity: 1; }
+}
+
+@keyframes glitch-top {
     0% { transform: translate(0); }
     20% { transform: translate(-2px, 2px); }
     40% { transform: translate(-2px, -2px); }
@@ -206,12 +257,13 @@ body {
     100% { transform: translate(0); }
 }
 
-.glitch-hover {
-    position: relative;
-}
-
-.glitch-hover:hover {
-    animation: text-glitch var(--glitch-intensity) linear;
+@keyframes glitch-bottom {
+    0% { transform: translate(0); }
+    20% { transform: translate(2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0); }
 }
 
 @media (max-width: 1200px) {
