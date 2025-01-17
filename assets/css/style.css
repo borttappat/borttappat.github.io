@@ -127,6 +127,7 @@ a {
     color: var(--color1);
     text-decoration: none;
     transition: all 0.3s ease;
+    animation: buzz 0.1s infinite alternate;
 }
 
 a:hover {
@@ -210,6 +211,12 @@ a:hover::after {
     font-family: 'VT323', monospace;
     letter-spacing: 0.1em;
     margin-bottom: 0.5em;
+    position: relative;
+    display: inline-block;
+    text-shadow: 
+        0 0 5px var(--color6),
+        0 0 10px var(--color6);
+    animation: clockPulse 2s infinite alternate;
 }
 
 .ip-info, 
@@ -220,6 +227,11 @@ a:hover::after {
     color: var(--color4);
     font-family: 'VT323', monospace;
     letter-spacing: 0.1em;
+}
+
+@keyframes clockPulse {
+    0% { text-shadow: 0 0 5px var(--color6), 0 0 10px var(--color6); }
+    100% { text-shadow: 0 0 2px var(--color6), 0 0 5px var(--color6); }
 }
 
 @keyframes scanline-scroll {
