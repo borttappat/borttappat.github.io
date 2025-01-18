@@ -18,10 +18,14 @@
     
     /* Font variables */
     --font-primary: 'Cozette', monospace;
-    --font-size-large: 20px;
+    --font-size-large: 13px;
     --font-size-medium: 16px;
     --font-size-small: 12px;
     --letter-spacing: 0.1em;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, a, li {
+    animation: buzz 0.1s infinite alternate;
 }
 
 body {
@@ -113,11 +117,12 @@ body {
     position: relative;
     z-index: 1;
     animation: buzz 0.1s infinite alternate;
+    text-align: center;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -125,12 +130,15 @@ body {
     color: var(--color1);
     font-size: var(--font-size-large);
     line-height: 1;
+    text-align: left;
     white-space: pre;
+    margin-bottom: 2em;
     font-family: var(--font-primary);
+    transform: translateX(-75px);
+    margin-left: auto;
+    margin-right: auto;
     text-shadow: 0 0 2px var(--text-shadow-color);
     letter-spacing: var(--letter-spacing);
-    margin: 0 auto 2em auto;
-    width: 84ch;
 }
 
 #time,
@@ -204,9 +212,10 @@ a:hover::after {
     grid-template-columns: repeat(4, 15em);
     gap: 2.5em;
     margin: 1em auto;
-    width: 84ch;
+    width: fit-content;
     padding: 0;
     line-height: 1;
+    transform: translateX(50px);
 }
 
 .category {
@@ -223,7 +232,6 @@ a:hover::after {
     font-family: var(--font-primary);
     letter-spacing: var(--letter-spacing);
     line-height: 1;
-    animation: buzz 0.1s infinite alternate;
 }
 
 .category ul {
@@ -235,7 +243,6 @@ a:hover::after {
 .category li {
     margin-bottom: 0;
     line-height: 1;
-    animation: buzz 0.1s infinite alternate;
 }
 
 .category a {
@@ -243,10 +250,6 @@ a:hover::after {
     font-size: var(--font-size-large);
     letter-spacing: var(--letter-spacing);
     line-height: 1;
-}
-
-h1, h2, h3, h4, h5, h6, p, span, div, a, li {
-    animation: buzz 0.1s infinite alternate;
 }
 
 @keyframes elementPulse {
@@ -307,13 +310,11 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, li {
     
     .ascii-art {
         font-size: var(--font-size-large);
-        width: auto;
     }
     
     .categories-grid {
         grid-template-columns: repeat(4, 10em);
-        width: auto;
-        gap: 1em;
+        transform: translateX(25px);
     }
 }
 
@@ -328,8 +329,13 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, li {
         --font-size-small: 6px;
     }
     
+    .ascii-art {
+        transform: translateX(-25px);
+    }
+    
     .categories-grid {
         grid-template-columns: repeat(2, 15em);
+        transform: translateX(0);
         gap: 1em;
     }
 }
