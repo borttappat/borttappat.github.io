@@ -116,7 +116,7 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;  /* This centers flex children */
     padding: 0;
     box-sizing: border-box;
 }
@@ -201,11 +201,10 @@ a:hover::after {
 
 .categories-grid {
     display: grid;
-    /* Each column will be ~18ch wide with 4ch gaps */
     grid-template-columns: repeat(4, 18ch);
     gap: 4ch;
-    margin: 1em auto;
-    width: 84ch; /* Match ASCII art width exactly */
+    margin: 1em auto;  /* This should center it horizontally */
+    width: 84ch;
     padding: 0;
     line-height: 1;
 }
