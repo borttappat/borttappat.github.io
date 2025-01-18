@@ -1,4 +1,3 @@
-/* Font face definition */
 @font-face {
     font-family: 'Cozette';
     src: url('../fonts/CozetteVector.ttf') format('truetype');
@@ -15,8 +14,6 @@
     --mouse-y: 0.5;
     --glow-strength: 2px;
     --scanline-size: 2px;
-    
-    /* Font variables */
     --font-primary: 'Cozette', monospace;
     --font-size-large: 20px;
     --font-size-medium: 16px;
@@ -39,6 +36,17 @@ body {
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: grayscale;
     font-smooth: never;
+}
+
+.container {
+    max-width: 84ch;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .crt-effects {
@@ -98,39 +106,60 @@ body {
     z-index: 1000;
 }
 
-.glow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0 0 var(--glow-strength) var(--color1);
-    opacity: 0.2;
-    pointer-events: none;
-}
-
-.container {
-    position: relative;
-    z-index: 1;
-    animation: buzz 0.1s infinite alternate;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* This centers flex children */
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .ascii-art {
+    width: 84ch;
+    margin: 0 auto 2em auto;
+    white-space: pre;
+    text-align: left;
     color: var(--color1);
     font-size: var(--font-size-large);
     line-height: 1;
-    white-space: pre;
     font-family: var(--font-primary);
     text-shadow: 0 0 2px var(--text-shadow-color);
     letter-spacing: var(--letter-spacing);
-    margin: 0 auto 2em auto;
+    animation: buzz 0.1s infinite alternate;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 18ch);
+    gap: 4ch;
+    margin: 0 auto;
     width: 84ch;
+    padding: 0;
+}
+
+.category {
+    min-width: 0;
+    text-align: left;
+    animation: buzz 0.1s infinite alternate;
+}
+
+.category h2 {
+    margin-bottom: 0.2em;
+    color: var(--color2);
+    font-size: var(--font-size-large);
+    font-family: var(--font-primary);
+    letter-spacing: var(--letter-spacing);
+    line-height: 1;
+}
+
+.category ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.category li {
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.category a {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-large);
+    letter-spacing: var(--letter-spacing);
+    line-height: 1;
 }
 
 #time,
@@ -165,7 +194,6 @@ a {
     text-decoration: none;
     transition: all 0.3s ease;
     animation: buzz 0.1s infinite alternate;
-    font-family: var(--font-primary);
 }
 
 a:hover {
@@ -197,56 +225,6 @@ a:hover::after {
     animation: glitch-bottom var(--glitch-duration) infinite;
     clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
     color: var(--color2);
-}
-
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 18ch);
-    gap: 4ch;
-    margin: 1em auto;  /* This should center it horizontally */
-    width: 84ch;
-    padding: 0;
-    line-height: 1;
-}
-
-.category {
-    min-width: 0;
-    text-align: left;
-    margin-right: 1em;
-    animation: buzz 0.1s infinite alternate;
-}
-
-.category h2 {
-    margin-bottom: 0.2em;
-    color: var(--color2);
-    font-size: var(--font-size-large);
-    font-family: var(--font-primary);
-    letter-spacing: var(--letter-spacing);
-    line-height: 1;
-    animation: buzz 0.1s infinite alternate;
-}
-
-.category ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.category li {
-    margin-bottom: 0;
-    line-height: 1;
-    animation: buzz 0.1s infinite alternate;
-}
-
-.category a {
-    font-family: var(--font-primary);
-    font-size: var(--font-size-large);
-    letter-spacing: var(--letter-spacing);
-    line-height: 1;
-}
-
-h1, h2, h3, h4, h5, h6, p, span, div, a, li {
-    animation: buzz 0.1s infinite alternate;
 }
 
 @keyframes elementPulse {
@@ -305,15 +283,16 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, li {
         --font-size-small: 8px;
     }
     
-    .ascii-art {
-        font-size: var(--font-size-large);
+    .container,
+    .ascii-art,
+    .categories-grid {
         width: auto;
+        max-width: 95%;
     }
     
     .categories-grid {
-        grid-template-columns: repeat(4, 10em);
-        width: auto;
-        gap: 1em;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2ch;
     }
 }
 
@@ -329,7 +308,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, li {
     }
     
     .categories-grid {
-        grid-template-columns: repeat(2, 15em);
-        gap: 1em;
+        grid-template-columns: 1fr;
+        gap: 1ch;
     }
 }
