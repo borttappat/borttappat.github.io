@@ -210,12 +210,12 @@ a:hover::after {
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(4, 15em);
-    gap: 2.5em;
+    gap: 2em;
     margin: 1em auto;
     width: fit-content;
     padding: 0;
     line-height: 1;
-    transform: translateX(55px);
+    transform: translateX(65px);
 }
 
 .category {
