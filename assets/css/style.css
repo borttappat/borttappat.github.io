@@ -1,11 +1,9 @@
-/* CSS Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Font face definition */
 @font-face {
     font-family: 'Cozette';
     src: url('../fonts/CozetteVector.ttf') format('truetype');
@@ -22,8 +20,6 @@
     --mouse-y: 0.5;
     --glow-strength: 2px;
     --scanline-size: 2px;
-    
-    /* Font variables */
     --font-primary: 'Cozette', monospace;
     --font-size-large: 13px;
     --font-size-medium: 16px;
@@ -93,20 +89,16 @@ body {
     z-index: 999;
 }
 
-.crt-flicker {
+.flicker {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: var(--flicker-color);
+    z-index: 1001;
     pointer-events: none;
-    background: radial-gradient(
-        circle at calc(var(--mouse-x) * 100%) calc(var(--mouse-y) * 100%),
-        rgba(255, 255, 255, 0.1) 0%,
-        transparent 80%
-    );
-    mix-blend-mode: overlay;
-    z-index: 1000;
+    animation: flicker 0.2s infinite;
 }
 
 .glow {
@@ -144,8 +136,10 @@ body {
     transform: translateX(-75px);
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 0 0 2px var(--text-shadow-color);
     letter-spacing: var(--letter-spacing);
+    text-shadow: 
+        0 0 2px var(--text-shadow-color),
+        0 0 5px var(--color1);
 }
 
 #time,
@@ -222,7 +216,7 @@ a:hover::after {
     width: fit-content;
     padding: 0;
     line-height: 1;
-    transform: translateX(75px);
+    transform: translateX(25px);
 }
 
 .category {
@@ -239,7 +233,9 @@ a:hover::after {
     font-family: var(--font-primary);
     letter-spacing: var(--letter-spacing);
     line-height: 1;
-    text-shadow: 0 0 2px var(--text-shadow-color);
+    text-shadow: 
+        0 0 2px var(--text-shadow-color),
+        0 0 5px var(--color2);
 }
 
 .category ul {
@@ -259,7 +255,9 @@ a:hover::after {
     letter-spacing: var(--letter-spacing);
     line-height: 1;
     color: var(--color1);
-    text-shadow: 0 0 2px var(--text-shadow-color);
+    text-shadow: 
+        0 0 2px var(--text-shadow-color),
+        0 0 5px var(--color1);
 }
 
 @keyframes elementPulse {
@@ -275,6 +273,12 @@ a:hover::after {
 @keyframes buzz {
     0% { transform: translateX(0) translateY(0); }
     100% { transform: translateX(0.2px) translateY(0.2px); }
+}
+
+@keyframes flicker {
+    0% { opacity: 0.9; }
+    50% { opacity: 1; }
+    100% { opacity: 0.9; }
 }
 
 @keyframes glitch-text {
