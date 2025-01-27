@@ -239,6 +239,7 @@ a:hover::after {
     font-family: var(--font-primary);
     letter-spacing: var(--letter-spacing);
     line-height: 1;
+    text-shadow: 0 0 2px var(--text-shadow-color);
 }
 
 .category ul {
@@ -257,6 +258,8 @@ a:hover::after {
     font-size: var(--font-size-large);
     letter-spacing: var(--letter-spacing);
     line-height: 1;
+    color: var(--color1);
+    text-shadow: 0 0 2px var(--text-shadow-color);
 }
 
 @keyframes elementPulse {
