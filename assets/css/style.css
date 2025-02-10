@@ -222,7 +222,7 @@ a:hover::after {
     width: fit-content;
     padding: 0;
     line-height: 1;
-    transform: translateX(75px);
+    transform: translateX(-75px);
 }
 
 .category {
