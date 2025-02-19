@@ -216,47 +216,52 @@ a:hover::after {
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(4, 15em);
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 2em;
-    margin: 1em auto;
-    width: fit-content;
-    padding: 0;
-    line-height: 1;
-    transform: translateX(-75px);
+    width: 100%;
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 0 2em;
+    justify-content: center;
 }
 
 .category {
     min-width: 0;
-    text-align: left;
-    margin-right: 1em;
-    animation: buzz 0.1s infinite alternate;
 }
 
 .category h2 {
-    margin-bottom: 0.2em;
     color: var(--color2);
-    font-size: var(--font-size-large);
-    font-family: var(--font-primary);
-    letter-spacing: var(--letter-spacing);
-    line-height: 1;
+    font-size: 14px;
+    margin-bottom: 0.5em;
 }
 
 .category ul {
-    margin: 0;
-    padding: 0;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .category li {
-    margin-bottom: 0;
-    line-height: 1;
+    margin-bottom: 0.25em;
 }
 
 .category a {
-    font-family: var(--font-primary);
-    font-size: var(--font-size-large);
-    letter-spacing: var(--letter-spacing);
-    line-height: 1;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+@media (max-width: 1200px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: minmax(200px, 1fr);
+        padding: 0 1em;
+    }
 }
 
 @keyframes elementPulse {
