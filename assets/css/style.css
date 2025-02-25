@@ -347,7 +347,7 @@ a:hover::after {
     
     .categories-grid {
         grid-template-columns: repeat(2, 15em);
-        transform: translateX(0);
+        transform: translateX(-25px);
         gap: 1em;
     }
 }
