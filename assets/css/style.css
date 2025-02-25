@@ -124,11 +124,11 @@ body {
     position: relative;
     z-index: 1;
     animation: buzz 0.1s infinite alternate;
-    text-align: center;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -141,9 +141,7 @@ body {
     white-space: pre;
     margin-bottom: 2em;
     font-family: var(--font-primary);
-    transform: translateX(-75px);
-    margin-left: auto;
-    margin-right: auto;
+    align-self: center; /* Add this */
     text-shadow: 0 0 2px var(--text-shadow-color);
     letter-spacing: var(--letter-spacing);
 }
@@ -221,8 +219,9 @@ a:hover::after {
     width: 100%;
     max-width: 1200px;
     margin: 2em auto;
-    padding: -2em 2em;
+    padding: 0 2em; 
     justify-content: center;
+    justify-self: center; 
 }
 
 .category {
@@ -341,14 +340,5 @@ a:hover::after {
         --font-size-small: 6px;
     }
     
-    .ascii-art {
-        transform: translateX(-25px);
-    }
-    
-    .categories-grid {
-        grid-template-columns: repeat(2, 15em);
-        transform: translateX(0);
-        gap: 1em;
-    }
 }
 
