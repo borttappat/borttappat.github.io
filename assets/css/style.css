@@ -126,11 +126,13 @@ body {
     animation: buzz 0.1s infinite alternate;
     text-align: center;
     width: 100%;
+    max-width: 1200px; /* Add a max-width */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+    margin: 0 auto; /* This centers the container */
 }
 
 .ascii-art {
@@ -141,11 +143,16 @@ body {
     white-space: pre;
     margin-bottom: 2em;
     font-family: var(--font-primary);
-    transform: translateX(-75px);
-    margin-left: auto;
-    margin-right: auto;
+    /* Remove the transform */
+    margin: 0 auto;
     text-shadow: 0 0 2px var(--text-shadow-color);
     letter-spacing: var(--letter-spacing);
+}
+
+.ascii-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 #time,
@@ -223,7 +230,7 @@ a:hover::after {
     margin: 2em auto;
     padding: 0 2em;
     justify-content: center;
-    transform: translateX(-75px); 
+    /* Remove the transform */
 }
 
 .category {
