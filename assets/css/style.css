@@ -223,6 +223,7 @@ a:hover::after {
     margin: 2em auto;
     padding: 0 2em;
     justify-content: center;
+    transform: translateX(-75px); 
 }
 
 .category {
