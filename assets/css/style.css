@@ -143,8 +143,9 @@ body {
     white-space: pre;
     margin-bottom: 2em;
     font-family: var(--font-primary);
-    /* Remove the transform */
-    margin: 0 auto;
+    transform: translateX(-75px); /* Restore this line */
+    margin-left: auto;
+    margin-right: auto;
     text-shadow: 0 0 2px var(--text-shadow-color);
     letter-spacing: var(--letter-spacing);
 }
