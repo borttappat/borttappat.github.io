@@ -21,13 +21,14 @@
     --mouse-x: 0.5;
     --mouse-y: 0.5;
     --glow-strength: 2px;
-    --scanline-size: 4px;
+    --scanline-size: 2px;
     
     /* Font variables */
     --font-primary: 'Cozette', monospace;
-    --font-size-large: 13px;
-    --font-size-medium: 16px;
-    --font-size-small: 12px;
+    /* Standardizing on the ASCII art font size for consistency */
+    --font-size-ascii: 13px;
+    --font-size-category-heading: 16px;
+    --font-size-link: 13px; /* Matching the ASCII art size */
     --letter-spacing: 0.1em;
 }
 
@@ -76,7 +77,7 @@ body {
         var(--scanline-color)
     );
     background-size: 100% var(--scanline-size);
-    opacity: 0.5;
+    opacity: 0.3;
     animation: scanline-scroll 8s linear infinite;
     pointer-events: none;
 }
@@ -93,19 +94,33 @@ body {
     z-index: 999;
 }
 
-.flicker {
-    background: rgba(152, 217, 2, 0.01);
-    animation: flicker 0.2s infinite;
+.crt-flicker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Static glow instead of mouse tracking */
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 80%
+    );
+    mix-blend-mode: overlay;
+    z-index: 1000;
 }
 
-.crt-flicker {
-    background: radial-gradient(
-        ellipse at center,
-        transparent 0%,
-        rgba(0, 0, 0, 0.15) 80%,
-        rgba(0, 0, 0, 0.3) 100%
-    );
-    mix-blend-mode: multiply;
+.flicker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(152, 217, 2, 0.005); /* Reduced flicker intensity */
+    z-index: 1001;
+    pointer-events: none;
+    animation: flicker 0.5s infinite; /* Slower animation for less intense flicker */
 }
 
 .glow {
@@ -125,39 +140,31 @@ body {
     animation: buzz 0.1s infinite alternate;
     text-align: center;
     width: 100%;
-    max-width: 1200px; /* Add a max-width */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    margin: 0 auto; /* This centers the container */
 }
 
 .ascii-art {
     color: var(--color1);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-ascii);
     line-height: 1;
     text-align: left;
     white-space: pre;
     margin-bottom: 2em;
     font-family: var(--font-primary);
-    transform: translateX(-75px); /* Restore this line */
+    transform: translateX(-75px); /* Keep the transform for the ASCII art */
     margin-left: auto;
     margin-right: auto;
     text-shadow: 0 0 2px var(--text-shadow-color);
     letter-spacing: var(--letter-spacing);
 }
 
-.ascii-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
 #time,
 #ip-display {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-ascii);
     color: var(--color6);
     font-family: var(--font-primary);
     letter-spacing: var(--letter-spacing);
@@ -173,7 +180,7 @@ body {
 .ip-info, 
 .location-info, 
 .weather-info {
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-ascii);
     margin-bottom: 0.5em;
     color: var(--color4);
     font-family: var(--font-primary);
@@ -188,14 +195,14 @@ a {
     transition: all 0.3s ease;
     animation: buzz 0.1s infinite alternate;
     font-family: var(--font-primary);
+    font-size: var(--font-size-link); /* Matching ASCII art size */
 }
 
 a:hover {
     color: var(--color6);
     text-shadow: 
         0 0 5px var(--color6),
-        0 0 10px var(--color6),
-        0 0 15px var(--color6);
+        0 0 10px var(--color6);
     animation: glitch-text var(--glitch-duration) infinite;
 }
 
@@ -230,7 +237,7 @@ a:hover::after {
     margin: 2em auto;
     padding: 0 2em;
     justify-content: center;
-    /* Remove the transform */
+    /* No transform to keep it centered */
 }
 
 .category {
@@ -239,8 +246,9 @@ a:hover::after {
 
 .category h2 {
     color: var(--color2);
-    font-size: 14px;
+    font-size: var(--font-size-category-heading);
     margin-bottom: 0.5em;
+    font-family: var(--font-primary);
 }
 
 .category ul {
@@ -251,10 +259,11 @@ a:hover::after {
 
 .category li {
     margin-bottom: 0.25em;
+    font-family: var(--font-primary);
 }
 
 .category a {
-    font-size: 12px;
+    font-size: var(--font-size-link); /* Matching ASCII art size */
     line-height: 1.4;
 }
 
@@ -270,6 +279,16 @@ a:hover::after {
         grid-template-columns: minmax(200px, 1fr);
         padding: 0 1em;
     }
+    
+    :root {
+        --font-size-ascii: 12px;
+        --font-size-category-heading: 14px;
+        --font-size-link: 12px;
+    }
+    
+    .ascii-art {
+        transform: translateX(-25px);
+    }
 }
 
 @keyframes elementPulse {
@@ -284,7 +303,13 @@ a:hover::after {
 
 @keyframes buzz {
     0% { transform: translateX(0) translateY(0); }
-    100% { transform: translateX(0.2px) translateY(0.2px); }
+    100% { transform: translateX(0.1px) translateY(0.1px); } /* Reduced buzz intensity */
+}
+
+@keyframes flicker {
+    0% { opacity: 0.97; } /* Subtle flicker */
+    50% { opacity: 1; }
+    100% { opacity: 0.97; }
 }
 
 @keyframes glitch-text {
@@ -320,43 +345,3 @@ a:hover::after {
     80% { transform: translate(-2px, 2px); }
     100% { transform: translate(0); }
 }
-
-@media (max-width: 1200px) {
-    :root {
-        --font-size-large: 12px;
-        --font-size-medium: 10px;
-        --font-size-small: 8px;
-    }
-    
-    .ascii-art {
-        font-size: var(--font-size-large);
-    }
-    
-    .categories-grid {
-        grid-template-columns: repeat(4, 10em);
-        transform: translateX(25px);
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-    
-    :root {
-        --font-size-large: 10px;
-        --font-size-medium: 8px;
-        --font-size-small: 6px;
-    }
-    
-    .ascii-art {
-        transform: translateX(-25px);
-    }
-    
-    .categories-grid {
-        grid-template-columns: repeat(2, 15em);
-        transform: translateX(0);
-        gap: 1em;
-    }
-}
-
