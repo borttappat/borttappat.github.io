@@ -1,33 +1,27 @@
+/* Theme colors - automatically generated */
 :root {
-    --color0: #0D0D0D;
-    --color1: #226E1B;
-    --color2: #264D23;
-    --color3: #296A23;
-    --color4: #1A8E0F;
-    --color5: #1EA312;
-    --color6: #1FD00F;
-    --color7: #83f579;
-    --color8: #5bab54;
-    --color9: #FF6B6B;
-    --color10: #4ECDC4;
-    --color11: #45B7D1;
-    --color12: #96CEB4;
-    --color13: #FFEEAD;
-    --color14: #D4A373;
-    --color15: #FFD93D;
-    
+    /* Colors extracted from pywal */
+    --color0: #0d0d0e;
+    --color1: #EE3E11;
+    --color2: #EE4315;
+    --color3: #EB5D35;
+    --color4: #A9716A;
+    --color5: #D56B54;
+    --color6: #7E7C86;
+    --color7: #c5c1c0;
+    --color8: #898786;
+    --color9: #EE3E11;
+    --color10: #EE4315;
+    --color11: #EB5D35;
+    --color12: #A9716A;
+    --color13: #D56B54;
+    --color14: #7E7C86;
+    --color15: #c5c1c0;
+}
+
+    /* Additional theme variables */
     --scanline-color: rgba(12, 12, 12, 0.1);
     --flicker-color: rgba(152, 217, 2, 0.01);
     --text-shadow-color: var(--color1);
     --header-shadow-color: var(--color0);
-    
-    --link-hover: var(--color6);
-    --link-active: var(--color9);
-    --link-visited: var(--color10);
-    
-    --section-header: var(--color11);
-    --info-text: var(--color12);
-    --highlight: var(--color13);
-    --accent: var(--color14);
-    --warning: var(--color15);
 }
