@@ -246,11 +246,11 @@ a:hover::after {
 
 .category h2 {
     margin-bottom: 0.2em;
-    color: var(--color2);
+    color: var(--color6);
     font-size: var(--font-size-large);
     font-family: var(--font-primary);
     letter-spacing: var(--letter-spacing);
-    line-height: 1;
+    line-height: 1.5;
 }
 
 .category ul {
@@ -283,7 +283,7 @@ a:hover::after {
 
 @keyframes buzz {
     0% { transform: translateX(0) translateY(0); }
-    100% { transform: translateX(0.2px) translateY(0.2px); }
+    100% { transform: translateX(0.1px) translateY(0.1px); }
 }
 
 @keyframes glitch-text {
