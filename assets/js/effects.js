@@ -113,17 +113,17 @@ function initializeEffects() {
     addFlickerToLinks();
     
     // Add CRT effects
-    addCRTFlicker();
+    //addCRTFlicker();
     addStaticNoise();
     addScanlines();
     
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        document.documentElement.style.setProperty('--mouse-x', x);
-        document.documentElement.style.setProperty('--mouse-y', y);
-    });
+    //document.addEventListener('mousemove', (e) => {
+    //    const x = e.clientX / window.innerWidth;
+    //    const y = e.clientY / window.innerHeight;
+    //    
+    //    document.documentElement.style.setProperty('--mouse-x', x);
+    //    document.documentElement.style.setProperty('--mouse-y', y);
+    //});
 }
 
 // Initialize effects when DOM is loaded
