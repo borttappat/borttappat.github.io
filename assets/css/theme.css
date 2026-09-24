@@ -5,10 +5,10 @@ body {
     background: #000;
 }
 
-/* 20% above the old 13px, shrinking only when the 81-column art would overflow the viewport
+/* ~8% above the old 13px, shrinking only when the 81-column art would overflow the viewport
    (one column is ~0.56em including letter-spacing; 32px is the body's side padding) */
 :root {
-    --font-size-large: min(15.6px, calc((100vw - 32px) / 46));
+    --font-size-large: min(14px, calc((100vw - 32px) / 46));
 }
 
 body {
