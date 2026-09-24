@@ -128,19 +128,3 @@ function initializeEffects() {
 
 // Initialize effects when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeEffects);
-
-// Re-initialize effects when content changes
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach(mutation => {
-        if (mutation.target.id === 'time' || mutation.target.id === 'ip-display') {
-            // Don't reinitialize for clock or IP updates
-            return;
-        }
-        initializeEffects();
-    });
-});
-
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});

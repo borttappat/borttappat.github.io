@@ -39,10 +39,6 @@
     --letter-spacing: 0.1em;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, div, a, li {
-    animation: buzz 0.1s infinite alternate;
-}
-
 body {
     background-color: var(--color0);
     color: var(--color1);
@@ -133,7 +129,6 @@ body {
 .container {
     position: relative;
     z-index: 1;
-    animation: buzz 0.1s infinite alternate;
     text-align: center;
     width: 100%;
     display: flex;
@@ -189,7 +184,6 @@ a {
     color: var(--color1);
     text-decoration: none;
     transition: all 0.3s ease;
-    animation: buzz 0.1s infinite alternate;
     font-family: var(--font-primary);
 }
 
@@ -241,7 +235,6 @@ a:hover::after {
     min-width: 0;
     text-align: left;
     margin-right: 1em;
-    animation: buzz 0.1s infinite alternate;
 }
 
 .category h2 {
@@ -279,11 +272,6 @@ a:hover::after {
 @keyframes scanline-scroll {
     0% { transform: translateY(0); }
     100% { transform: translateY(var(--scanline-size)); }
-}
-
-@keyframes buzz {
-    0% { transform: translateX(0) translateY(0); }
-    100% { transform: translateX(0.1px) translateY(0.1px); }
 }
 
 @keyframes glitch-text {

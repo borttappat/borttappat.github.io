@@ -8,7 +8,6 @@ body {
 body {
     padding: 16px;
     text-align: left;
-    animation: textShadow 1.033s infinite;
 }
 
 /* shrink-wraps to the <pre>, so the art defines the page width */
@@ -20,6 +19,7 @@ body {
 
 .ascii-art {
     transform: none;
+    animation: textShadow 1.033s infinite;
     margin: 0 0 2em 0;
 }
 
@@ -95,6 +95,7 @@ body {
     background: var(--color1);
     box-shadow: 0 0 6px var(--color1);
     opacity: 0.25;
+    will-change: transform;
     animation: scanline 7.77s linear infinite;
 }
 
@@ -110,8 +111,10 @@ body {
     animation: flicker 0.3301s infinite;
 }
 
+/* transform instead of top: composited, no repaint per frame */
 @keyframes scanline {
-    0% { top: 99%; }
+    0% { transform: translateY(99vh); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes flicker {
