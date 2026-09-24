@@ -5,6 +5,12 @@ body {
     background: #000;
 }
 
+/* 40% above the old 13px, shrinking only when the 81-column art would overflow the viewport
+   (one column is ~0.56em including letter-spacing; 32px is the body's side padding) */
+:root {
+    --font-size-large: min(18.2px, calc((100vw - 32px) / 46));
+}
+
 body {
     padding: 16px;
     text-align: left;

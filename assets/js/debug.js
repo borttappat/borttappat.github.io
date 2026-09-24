@@ -1,5 +1,6 @@
 // Debug panel: live fps counter plus per-effect toggles.
 // Settings are kept per browser, so a working combination sticks across reloads.
+// The heavier animations start switched off (DEFAULT_OFF); the panel can turn them back on.
 // Loaded in <head> so disabled effects apply before the first paint.
 (function () {
     const KEY = 'debug-panel';
@@ -15,11 +16,17 @@
         ['transition', 'link transitions', 'a{transition:none!important}'],
     ];
 
+    const DEFAULT_OFF = ['artjitter', 'flicker', 'pulse', 'linkflicker', 'transition'];
+
+    function defaults() {
+        return { open: false, off: DEFAULT_OFF.slice(), nojs: false };
+    }
+
     function load() {
         try {
-            return Object.assign({ open: false, off: [], nojs: false }, JSON.parse(localStorage.getItem(KEY)));
+            return Object.assign(defaults(), JSON.parse(localStorage.getItem(KEY)));
         } catch (e) {
-            return { open: false, off: [], nojs: false };
+            return defaults();
         }
     }
 
@@ -58,7 +65,7 @@
                 `<label><input type="checkbox" data-id="${id}"${state.off.includes(id) ? ' checked' : ''}> ${label} off</label>`
             ).join('') +
             `<label><input type="checkbox" data-js${state.nojs ? ' checked' : ''}> js glitch timers off (reloads)</label>` +
-            '<button type="button">reset</button>';
+            '<button type="button">defaults</button>';
 
         panel.querySelectorAll('input[data-id]').forEach(cb => {
             cb.addEventListener('change', () => {
@@ -74,7 +81,7 @@
             location.reload();
         });
         panel.querySelector('button').addEventListener('click', () => {
-            state.off = [];
+            state.off = DEFAULT_OFF.slice();
             state.nojs = false;
             save();
             location.reload();
